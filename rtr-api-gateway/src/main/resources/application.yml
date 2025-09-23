@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: api-gateway
+  profiles:
+    active: dev
+  config:
+    import: "optional:configserver:http://localhost:8888"
+  cloud:
+    config:
+      username: admin
+      password: admin
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+          routes:
+            - id: customer-service
+              uri: lb://customer-service
+              predicates:
+                - Path=/customer/**
+              filters:
+                - RewritePath=/customer/(?<segment>.*),/$\{segment}
+            - id: account
+              uri: lb://account
+              predicates:
+                - Path=/account/**
+              filters:
+                - RewritePath=/account/(?<segment>.*),/$\{segment}
+  rabbitmq:
+    host: http://localhost:9000
+    username: admin
+    password: password
+    port: 5672
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/[your-realm]
+
+server:
+  port: 8080
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
+
+management:
+  endpoint:
+    gateway:
+      access: read_only
+  endpoints:
+    web:
+      exposure:
+        include: "*"
