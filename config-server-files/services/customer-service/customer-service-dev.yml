@@ -1,0 +1,29 @@
+service:
+  info: Customer Service Microservice [Dev]
+
+spring:
+  application:
+    name: customer-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/[keycloak-realm]
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    # url: jdbc:postgresql://localhost:5433/customers
+    # username: customerUser
+    # password: asdf
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+external:
+  platzi-fake-store:
+    url: https://api.escuelajs.co/api/v1
+  json-place-holder:
+    url: https://jsonplaceholder.typicode.com

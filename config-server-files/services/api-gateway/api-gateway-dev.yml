@@ -1,0 +1,7 @@
+service:
+  info: API Gateway Microservice [Dev]
+
+spring:
+  application:
+    name: api-gateway
+

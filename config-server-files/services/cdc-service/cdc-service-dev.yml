@@ -1,0 +1,6 @@
+service:
+  name: cdc-service
+  info: CDC Service Microservice
+
+server:
+  port: 10000

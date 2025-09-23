@@ -1,0 +1,6 @@
+service:
+  name: customer-service
+  info: Customer Service Microservice 
+
+server:
+  port: 16800
