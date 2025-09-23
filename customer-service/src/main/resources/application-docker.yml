@@ -1,0 +1,10 @@
+spring:
+  config:
+    activate:
+      on-profile: docker
+  rabbitmq:
+    host: rtr-rabbitmq
+eureka:
+  client:
+    service-url:
+      defaultZone: http://rtr-eureka-server:8761/eureka/
