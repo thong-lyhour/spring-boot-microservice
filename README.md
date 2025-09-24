@@ -13,7 +13,7 @@ This repository demonstrates a **microservices architecture** built with **Sprin
 
 ## 🛠 Requirements
 
-- **Java 17+**
+- **Java 21+**
 - **Maven 3.9+**
 - **Docker & Docker Compose**
 
@@ -22,7 +22,7 @@ This repository demonstrates a **microservices architecture** built with **Sprin
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/thong-lyhour/spring-boot-microservice.git
 cd your-repo
 ```
 
